@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>joy Estates — Trusted Real Estate</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+ 
+
+</head>
+<body>
+  <!-- ===== HEADER / NAV ===== -->
+  <header class="site-header">
+    <div class="brand">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYQ3LdLoJTI72uX-PxtKtMdAXsokuSGsOcCg&s" alt="joy Estates logo" class="logo">
+      <span class="brand-name">joy Estates</span>
+      
+
+    </div>
+
+
+   <!-- Hamburger (only mobile) -->
+  <button id="menuBtn" class="menu-btn" aria-label="Toggle navigation">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
+
+    <nav id="primary-nav" class="nav-menu">
+      <ul>
+        <li><a href="index.html" class="nav-link active">Home</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="services.html" class="nav-link">Services</a></li>
+        <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+        <li><a href="our-company.html" class="nav-link">Our Company</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+   
+    <button type="button" class="add-btn" id="addPropertyBtn">
+      Add Property <span class="arrow">→</span>
+    </button>
+  </header>
+
+  <!-- ===== POPUP ===== -->
+  <div id="popupOverlay" class="popup-overlay">
+    <div class="popup-box">
+      <button id="closePopup" class="close-popup">✕</button>
+      <h2>Add Your Property</h2>
+      <form id="addPropertyForm">
+        <input type="text" placeholder="Property Title" required>
+        <input type="text" placeholder="Location" required>
+        <input type="number" placeholder="Price (₹)" required>
+        <textarea placeholder="Description" rows="4" required></textarea>
+        <input type="file" accept="image/*" required>
+        <button type="submit" class="submit-btn">Submit Property</button>
+      </form>
+    </div>
+  </div>
+
+    <main>
+    <!-- ===== HERO ===== -->
+    <section id="home" class="hero">
+      <div class="hero-inner">
+        <h1>Find your perfect property with <span>joy Estates</span></h1>
+        <img src="https://ecourbanrealty.co.in/images/12345.jpg" alt="creative image">
+        <p class="lead">Residential & commercial listings — verified, photographed, and priced fairly.</p>
+        <form id="quickSearch" class="quick-search">
+          <select id="filterType">
+            <option value="any">Any Type</option>
+            <option value="residential">Residential</option>
+            <option value="commercial">Commercial</option>
+            <option value="land">Plots / Land</option>
+          </select>
+          <select id="filterStatus">
+            <option value="any">Any Status</option>
+            <option value="sale">For Sale</option>
+            <option value="rent">For Rent</option>
+          </select>
+          <input type="text" id="filterKeyword" placeholder="Search city or neighborhood">
+          <button type="submit" class="btn">Search</button>
+        </form>
+      </div>
+    </section>
+    <!-- ===== LISTINGS / PROPERTIES ===== -->
+    <section id="listings" class="section listings">
+      <div class="section-box">
+        <h2>Featured Properties</h2>
+        <img src="https://media.istockphoto.com/id/2154752387/photo/real-estate-concept-business-home-insurance-and-real-estate-protection-real-estate-investment.jpg?s=612x612&w=0&k=20&c=r6Tmn31ZHHr-8ZuWfZaYIYdqM9nD4dMc6NfDXxwsZeo=" alt="creative image">
+        <p>Click a card to view details or contact the agent.</p>
+      </div>
+
+      <div class="container">
+        <div class="filters-row">
+          <label>Min Price <input type="number" id="minPrice" placeholder="0"></label>
+          <label>Max Price <input type="number" id="maxPrice" placeholder="Any"></label>
+          <label>Beds 
+            <select id="bedsFilter">
+              <option value="any">Any</option>
+              <option value="1">1+</option>
+              <option value="2">2+</option>
+              <option value="3">3+</option>
+              <option value="4">4+</option>
+            </select>
+          </label>
+          <button id="applyFilters" class="btn small">Apply</button>
+          <button id="resetFilters" class="btn small ghost">Reset</button>
+        </div>
+
+        <div id="propertiesGrid" class="properties-grid"></div>
+        <div class="property-card">
+  <img src="https://media.istockphoto.com/id/1165384568/photo/europe-modern-complex-of-residential-buildings.jpg?s=612x612&w=0&k=20&c=iW4NBiMPKEuvaA7h8wIsPHikhS64eR-5EVPfjQ9GPOA=" alt="Property 1">
+  <div class="property-info">
+    <h3>Modern Apartment</h3>
+    <p>Anna Nagar, Chennai</p>
+    <p>2 Beds • 2 Baths • 950 Sqft</p>
+    <div class="property-price">₹65 Lakhs</div>
+  </div>
+</div>
+
+<div class="property-card">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiyqZYxuN8S7WC90_jkveHZiRtm0blqkKIZw&s" alt="Property 2">
+  <div class="property-info">
+    <h3>Luxury Villa</h3>
+    <p>Coimbatore</p>
+    <p>4 Beds • 3 Baths • 2400 Sqft</p>
+    <div class="property-price">₹1.6 Cr</div>
+  </div>
+</div>
+
+<div class="property-card">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmr9KBdnfa5tozKnqUBrAdbkrQuWepmZ4GZQ&s" alt="Property 3">
+  <div class="property-info">
+    <h3>Independent House</h3>
+    <p>Madurai</p>
+    <p>3 Beds • 2 Baths • 1500 Sqft</p>
+    <div class="property-price">₹85 Lakhs</div>
+  </div>
+</div>
+
+<div class="property-card">
+  <img src="https://d1hy6t2xeg0mdl.cloudfront.net/image/396956/035d290701/standard" alt="Property 4">
+  <div class="property-info">
+    <h3>Commercial Office</h3>
+    <p>T Nagar, Chennai</p>
+    <p>1500 Sqft</p>
+    <div class="property-price">₹1.2 Cr</div>
+  </div>
+</div>
+
+<div class="property-card">
+  <img src="https://sathishventures.in/wp-content/uploads/2025/04/plots-for-resale.jpeg" alt="Property 5">
+  <div class="property-info">
+    <h3>Premium Plot</h3>
+    <p>Trichy</p>
+    <p>2400 Sqft</p>
+    <div class="property-price">₹45 Lakhs</div>
+  </div>
+</div>
+
+<div class="property-card">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbb9fZH0ueDis5PMxoXnO-2nHu00frXH_HdQ&s" alt="Property 6">
+  <div class="property-info">
+    <h3>Townhouse</h3>
+    <p>Salem</p>
+    <p>3 Beds • 3 Baths • 1400 Sqft</p>
+    <div class="property-price">₹78 Lakhs</div>
+  </div>
+</div>
+
+      </div>
+    </section>
+
+
+     <!-- ===== ABOUT ===== -->
+    <section id="about" class="section about">
+      <div class="section-box">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzQNnzfM8ZvSZ75hZz3H2UUCbWuvbCWOHTNQ&s" alt="creative image">
+        <h2>About joy Estates</h2>
+        <p>We are licensed agents delivering verified listings and transparent pricing. Serving US & UK style markets with professionalism.</p>
+        <p>Contact us to list your property or schedule a consultation with our experts.</p>
+       
+    </div>
+    </section>
+    <!-- ===== SERVICES ===== -->
+    <section id="services" class="section services">
+      <div class="section-box">
+        <h2>Services</h2>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUIkw9uxSloTs_DPn_lhsKxATIsH1BVhtqBA&s" alt="crative image">
+        <div class="service-zigzag">
+          <div class="description">
+            <h3>Residential Sales</h3>
+            <p>We help clients buy or sell homes efficiently with verified listings and expert guidance.</p>
+          </div>
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUoAYx3IKixi0R9RUSNxOoOU2EL7J5oEmtNA&s" alt="Residential service">
+        </div>
+        <div class="service-zigzag reverse">
+          <div class="description">
+            <h3>Commercial Rentals</h3>
+            <p>Find office spaces, retail outlets, and commercial properties suitable for your business needs.</p>
+          </div>
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCFoonANacd-kZBUwQVmRd-rmfpVN8gxcrlA&s" alt="Commercial service">
+        </div>
+      </div>
+    </section>
+
+    
+   <!-- ===== PORTFOLIO ===== -->
+    <section id="portfolio" class="section portfolio">
+      <div class="section-box">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8sYdAFnmdJWPMixNN07ItoB7UYi48MMr92Q&s" alt="creative image">
+        <h2>Portfolio</h2>
+        <p>Some of our featured properties and successful client projects.</p>
+        
+      </div>
+      <div class="portfolio-list">
+  
+  <div class="portfolio-item">
+    <img src="https://tse2.mm.bing.net/th/id/OIP.xE9Xb91JIl6kGQhqH9lG-wHaE8?rs=1&pid=ImgDetMain&o=7&rm=3+1" alt="Property 1">
+    <div class="info">
+      <h3>Luxury Family Home</h3>
+      <p>4 BHK luxury residence located in a premium gated community with amenities.</p>
+    </div>
+  </div>
+
+  <div class="portfolio-item reverse">
+    <img src="https://th.bing.com/th/id/OIP.t6Rmh6Y2b_YT3fx8xo0puwHaEJ?w=320&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3+2" alt="Property 2">
+    <div class="info">
+      <h3>Commercial Space</h3>
+      <p>Modern office property for corporate & retail businesses with parking.</p>
+    </div>
+  </div>
+
+  <div class="portfolio-item">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYQSDyvUbS6lqMDmo8Ekw7k1TLobnmcTtsxw&s+3" alt="Property 3">
+    <div class="info">
+      <h3>Premium Villa</h3>
+      <p>Exclusive villa with private garden, large rooms and opulent design.</p>
+    </div>
+  </div>
+
+  <div class="portfolio-item reverse">
+    <img src="https://tse1.mm.bing.net/th/id/OIP.Ch_xp1iJ4vaPmVOLNNV9sgHaD5?w=800&h=421&rs=1&pid=ImgDetMain&o=7&rm=3+4" alt="Property 4">
+    <div class="info">
+      <h3>River-View Apartment</h3>
+      <p>2 BHK premium apartment with scenic balcony and easy connectivity.</p>
+    </div>
+  </div>
+
+</div>
+
+    </section>
+
+    <!-- ===== OUR COMPANY ===== -->
+    <section id="our-company" class="section our-company">
+      <div class="section-box">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTi--ILPQ3v9d-cjGr8sLF-OURqyYeGF7HXMw&s" alt="creative image">
+        <h2>Our Company</h2>
+        <p>joy Estates has been serving clients for over 10 years with professionalism, trust, and verified listings. We ensure smooth transactions and complete transparency.</p>
+      </div>
+    </section>
+
+    
+     <!-- ===== CONTACT / LEAD FORM ===== -->
+<section id="contact" class="section contact">
+  <div class="section-box">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnHAicGjETzC-pFZQUSsdQHT5UfQcQ_WwaHw&s" alt="creative image">
+    <h2>Contact & Enquiries</h2>
+    <p>Call or send a message — our team responds within one business day.</p>
+    
+  </div>
+
+  <div class="contact-grid">
+
+    <!-- LEFT :: CONTACT DETAILS -->
+    <aside class="contact-info">
+      <h3>Get in Touch</h3>
+
+      <p><strong>📍 Address :</strong><br>
+      Joy Estates Office,<br>
+      Main Road, Chennai – 600001</p>
+
+      <p><strong>📞 Phone :</strong><br>
+      <a href="tel:+919876543210">+91 98765 43210</a></p>
+
+      <p><strong>📧 Email :</strong><br>
+      <a href="mailto:info@joyestates.com">info@joyestates.com</a></p>
+
+      <!-- ✅ WhatsApp Button -->
+      <a href="https://wa.me/919876543210" target="_blank" class="whatsapp-btn">
+        💬 Chat on WhatsApp
+      </a>
+    </aside>
+
+
+    <!-- RIGHT :: CONTACT FORM -->
+    <form id="leadForm" class="contact-form">
+      <label>Full Name
+        <input type="text" id="leadName" required>
+      </label>
+
+      <label>Email
+        <input type="email" id="leadEmail" required>
+      </label>
+
+      <label>Phone
+        <input type="tel" id="leadPhone" required>
+      </label>
+
+      <label>Message
+        <textarea id="leadMessage" rows="5" required></textarea>
+      </label>
+
+      <button type="submit" class="btn">Send Enquiry</button>
+      <p id="leadStatus" class="muted"></p>
+    </form>
+
+  </div>
+</section>
+  </main>
+  <!-- ===== STATS ===== -->
+  <div class="stats">
+    <div class="stat"><span class="num">10+</span><p>Years Experience</p></div>
+    <div class="stat"><span class="num">500+</span><p>Properties Sold</p></div>
+    <div class="stat"><span class="num">1200+</span><p>Happy Clients</p></div>
+    <div class="stat"><span class="num">8+</span><p>Cities Coverage</p></div>
+  </div>
+
+ <!-- ===== TEAM ===== -->
+  <div class="team">
+    <h2>Meet Our Team</h2>
+
+    <div class="team-grid">
+      <div class="team-card">
+       
+        <h3>Adam Wilson</h3>
+        <p>Founder / CEO</p>
+      </div>
+
+      <div class="team-card">
+       
+        <h3>Sarah Lee</h3>
+        <p>Sales Manager</p>
+      </div>
+
+      <div class="team-card">
+        
+        <h3>Michael Brown</h3>
+        <p>Property Advisor</p>
+      </div>
+    </div>
+  </div>
+
+
+    
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYQ3LdLoJTI72uX-PxtKtMdAXsokuSGsOcCg&s" alt="joy Estates logo" class="logo-small">
+        <strong>joy Estates</strong>
+        <p class="muted">Trusted property listings & dedicated agents.</p>
+      </div>
+
+      <div>
+        <h4>Properties</h4>
+        <ul class="footer-links">
+          <li><a href="index.html" class="nav-link active">Home</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="services.html" class="nav-link">Services</a></li>
+        <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+        <li><a href="our-company .html" class="nav-link">Our Company</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Legal</h4>
+        <ul class="footer-links">
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms & Conditions</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Follow</h4>
+        <ul class="footer-links">
+          <li><a href="Facebook" aria-label="Facebook">Facebook</a></li>
+          <li><a href="Instagram" aria-label="Instagram">Instagram</a></li>
+          <li><a href="LinkedIn" aria-label="LinkedIn">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <small>© <span id="year"></span> joy Estates. All rights reserved.</small>
+    </div>
+  </footer>
+  <button id="scrollTopBtn" title="Go to top">↑</button>
+
+</body>
+</html>
